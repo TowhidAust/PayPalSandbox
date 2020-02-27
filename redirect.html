@@ -11,10 +11,7 @@
 </head>
 
 <body>
-  <h3>Sandbox integration</h3>
-  <button class="btn btn-primary m-5 paypal_pay">Paypal Pay Button</button>
-  <button class="test">Test</button>
-  <div id="paypal-button-container"></div>
+    <h3>success</h3>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
@@ -27,17 +24,16 @@
   </script>
 
   <script>
-    $('.paypal_pay').click(function () {
-      console.log('paypalpay clicked');
-      fetch(`https://192.168.1.2:5000/api/paypal_get_parameters`, {
-        method: 'POST',
-      }).then(response => {
+ 
+    fetch('https://192.168.1.2:5000/api/execute_payment',{
+        method: 'POST'
+    }).then(response=>{
         return response.json();
-      }).then(returnedJson => {
-        console.log(returnedJson);
-        window.location.href = returnedJson.href;
-      });
-    });
+    }).then(snapshot=>{
+        console.log('success');
+    })
+  
+  
   </script>
 
 </body>
