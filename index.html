@@ -29,7 +29,7 @@
   <script>
     $('.paypal_pay').click(function () {
       console.log('paypalpay clicked');
-      fetch(`https://192.168.1.2:5000/api/paypal_get_parameters`, {
+      fetch(`https://192.168.1.14:5000/api/get_paypalParameters`, {
         method: 'POST',
       }).then(response => {
         return response.json();
